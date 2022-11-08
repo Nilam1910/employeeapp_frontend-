@@ -1,7 +1,7 @@
 
 import './App.css';
 import React, { Component } from 'react'
-// import NewForm from './Components/NewForm.js'
+import NewForm from './Components/NewForm.js'
 
 let baseURL = "http://localhost:8000/api/v1/employees/"
 console.log('current base URL:' , baseURL)
@@ -35,14 +35,21 @@ console.log('current base URL:' , baseURL)
     })
   }
   
-  // handleAddDog = (employee) => {
-    //   const copyDogs = [...this.state.employees]
-    //   copyDogs.unshift(employee)
-    //   this.setState({
+      addEmployee = (employee) => {
+        this.employee((prev) => [
+          ...prev,
+          {
+            ...employee,
+            id: prev.length + 1,
+          }
+        ])
+      // const copyEmployees = [...this.state.employees]
+      // copyEmployees.unshift(employee)
+      // this.setState({
       //     employees: copyEmployees,
       //     name: ''
       //   })
-      // }
+      }
       
       // we then pass the method as a prop to NewForm 
       
@@ -55,7 +62,7 @@ console.log('current base URL:' , baseURL)
     return (
       <div className="container">
         <h1 className="text-center">Employee List</h1>
-          {/* <NewForm handleAddHoliday={this.handleAddEmployee}/> */}
+          < NewForm addEmployee={this.addEmployee}/>
         <table id="employees">
           <tbody>
              {this.state.employees.map(employee => {
@@ -71,13 +78,13 @@ console.log('current base URL:' , baseURL)
                       <td key={employee._id}></td>
                     </tr>
                     <tr>
-                      <td>{employee.name}</td>
+                      <td key={''}>{employee.name}</td>
                     </tr>
                     <tr>
-                      <td>{employee.department}</td>
+                      <td key={''}>{employee.department}</td>
                     </tr>
                     <tr>
-                      <td>{employee.admin}</td>
+                      <td key={''}>{employee.admin}</td>
                     </tr>
                   </tr>
                   
