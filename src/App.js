@@ -1,41 +1,47 @@
-
+   
 import './App.css';
-import React, { Component } from 'react'
-import NewForm from './Components/NewForm.js'
+import React, { useState, useEffect } from 'react'
+import {Route, Routes, useParams} from 'react-router-dom'
+// import {Route, Routes, useNavigate} from 'react-router-dom'
+import NavBar from './Components/NavBar'
+import Home from './Components/Home'
+// import LoginUser from './Components/LoginUser'
+// import RegisterUser from './Components/RegisterUser'
+import EmployeeContainer from './Components/EmployeeContainer'
+import Footer from './Components/Footer'
+import EmployeeView from './Components/EmployeeView'
+import NewForm from './Components/NewForm';
+import EditForm from './Components/EditForm';
 
-let baseURL = "http://localhost:8000/api/v1/employees/"
-console.log('current base URL:' , baseURL)
+let baseUrl = 'http://localhost:8000'
+export default function App() {
+  const [employees, setEmployees] = useState([])
+  // const [oneEmployee, setOneEmployee] = useState({})
+  const {id} = useParams()
+  // const navigate = useNavigate()
 
- class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      employees: [{
-        name: '',
-        department: '',
-        admin: ''
-      }],
-      baseURL:'http://localhost:8000/api/v1/employees/'
-    }
-  }
-  getEmployees = () => {
-    fetch(baseURL)
+  const getEmployees = () => {
+    // fetch to the backend
+    fetch(baseUrl + "/api/v1/employees/",{
+      credentials: "include"
+    })
     .then(res => {
       if(res.status === 200) {
         return res.json()
       } else {
-        return [];
+        return []
       }
-    })
-    .then(data => {
-      // grabbing data from db and updating state when components mount
-      this.setState({
-        employees:data.data
-      })
+    }).then(data => {
+      // console.log(data.data) // worked
+      setEmployees(data.data)
     })
   }
+//////////////////////
+
   
-      addEmployee = (employee) => {
+
+///////////////////////////////////////////
+      const addEmployee = (employee) => {
         this.employee((prev) => [
           ...prev,
           {
@@ -43,61 +49,66 @@ console.log('current base URL:' , baseURL)
             id: prev.length + 1,
           }
         ])
-      // const copyEmployees = [...this.state.employees]
-      // copyEmployees.unshift(employee)
-      // this.setState({
-      //     employees: copyEmployees,
-      //     name: ''
-      //   })
       }
-      
-      // we then pass the method as a prop to NewForm 
-      
-      componentDidMount(){
-        this.getEmployees();
-      }
-      
-      render() {
-        console.log("state",this.state.employees)
-    return (
-      <div className="container">
-        <h1 className="text-center">Employee List</h1>
-          < NewForm addEmployee={this.addEmployee}/>
-        <table id="employees">
-          <tbody>
-             {this.state.employees.map(employee => {
-                console.log("this is a employee data", employee)
-                return(
-                  <tr>
-                    <tr>
-                     <th>Employee Name</th>
-                     <th>Department</th>
-                     <th>Admin</th>
-                    </tr>
-                    <tr>
-                      <td key={employee._id}></td>
-                    </tr>
-                    <tr>
-                      <td key={''}>{employee.name}</td>
-                    </tr>
-                    <tr>
-                      <td key={''}>{employee.department}</td>
-                    </tr>
-                    <tr>
-                      <td key={''}>{employee.admin}</td>
-                    </tr>
-                  </tr>
-                  
-                )
-              })
+
+      const updateEmployee = (employee) => {
+        employee((prev) => {
+          return prev.map((p) => {
+            if(p.id === employee.id){
+              return employee
+          } else {
+              return p
             }
-            
-          </tbody>
-        </table>
-      </div>
-      
-    )
-  }
+          })
+        })
+      }
+
+      const  deleteEmployee = (id) => {
+        fetch(baseUrl + "/api/v1/employees/" + id,{
+          method:'DELETE',
+          credentials: "include"
+        })
+        .then(res => {
+        
+          // return res.json()
+          console.log(res)
+        }).then(data => {
+          // console.log(data.data) // worked
+          getEmployees()
+        })
+        // getEmployees((prev) => prev.filter((employee) => employee.id !== id))
+      }
+  useEffect(()=>{
+    getEmployees()
+    
+  },[])
+ 
+  return (
+    <div className="App">
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        {/* <Route path="register" element={<RegisterUser register={register} />}/>
+        <Route path="login" element={<LoginUser loginUser={loginUser} />}/> */}
+        <Route path='employee/:id' element={<EditForm employee={updateEmployee} updateEmployee={updateEmployee}/> }/>
+        
+        {/* <Route path='employee/:id/editForm' element={<EditForm employee={getEmployee} employeeToEdit={employee} updateEmployee={updateEmployee} />}/> */}
+        <Route path='/newForm' element={<NewForm   addEmployee={addEmployee}/>}/>
+        <Route path="employees" element={<EmployeeContainer employees={employees} deleteEmployee={deleteEmployee}/>}/>
+        {/* not mandatory to put a "/" at the beginning of a route */}
+        <Route path="/employees/:id" element={<EmployeeView />}/>
+      </Routes>
+      {/* <Home />
+      <RegisterUser register={register}/>
+      <LoginUser loginUser={loginUser}/>
+      <EmployeeContainer employees={employees}/> */}
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+
+
+
+// how to set up react router
+// https://www.freecodecamp.org/news/how-to-use-react-router-version-6/#:~:text=To%20install%20React%20Router%2C%20all,%2Drouter%2Ddom%406%20
