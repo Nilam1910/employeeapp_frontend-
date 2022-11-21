@@ -2,9 +2,10 @@ export default function Home() {
    return (
      <>
        <main>
-         <h2>Welcome to the homepage!</h2>
-         <p>You can do this, I believe in you.</p>
-         <h1>An App for an Employee</h1>
+         <h1>Welcome to the Employee App!</h1>
+         <h5>This is a tool to track employee information.</h5>
+         <h5>Designed and developed by Nilam Patel.</h5>
+         
        </main>
      </>
    )

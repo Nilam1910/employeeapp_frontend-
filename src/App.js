@@ -1,8 +1,8 @@
    
 import './App.css';
 import React, { useState, useEffect } from 'react'
-import {Route, Routes, useParams} from 'react-router-dom'
-// import {Route, Routes, useNavigate} from 'react-router-dom'
+// import {Route, Routes} from 'react-router-dom'
+import {Route, Routes, useNavigate} from 'react-router-dom'
 import NavBar from './Components/NavBar'
 import Home from './Components/Home'
 // import LoginUser from './Components/LoginUser'
@@ -17,8 +17,8 @@ let baseUrl = 'http://localhost:8000'
 export default function App() {
   const [employees, setEmployees] = useState([])
   // const [oneEmployee, setOneEmployee] = useState({})
-  const {id} = useParams()
-  // const navigate = useNavigate()
+  
+  const navigate = useNavigate()
 
   const getEmployees = () => {
     // fetch to the backend
@@ -41,26 +41,10 @@ export default function App() {
   
 
 ///////////////////////////////////////////
-      const addEmployee = (employee) => {
-        this.employee((prev) => [
-          ...prev,
-          {
-            ...employee,
-            id: prev.length + 1,
-          }
-        ])
-      }
-
-      const updateEmployee = (employee) => {
-        employee((prev) => {
-          return prev.map((p) => {
-            if(p.id === employee.id){
-              return employee
-          } else {
-              return p
-            }
-          })
-        })
+      const handleAddEmployee = () => {
+        
+        getEmployees()
+        navigate("/employees")
       }
 
       const  deleteEmployee = (id) => {
@@ -69,15 +53,16 @@ export default function App() {
           credentials: "include"
         })
         .then(res => {
-        
+          alert("Employee Deleted Successfully 🎉 ")
           // return res.json()
           console.log(res)
         }).then(data => {
           // console.log(data.data) // worked
           getEmployees()
         })
-        // getEmployees((prev) => prev.filter((employee) => employee.id !== id))
+        
       }
+
   useEffect(()=>{
     getEmployees()
     
@@ -87,16 +72,16 @@ export default function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />}/>
+        <Route path='/' element={<Home />}/>
         {/* <Route path="register" element={<RegisterUser register={register} />}/>
         <Route path="login" element={<LoginUser loginUser={loginUser} />}/> */}
-        <Route path='employee/:id' element={<EditForm employee={updateEmployee} updateEmployee={updateEmployee}/> }/>
-        
-        {/* <Route path='employee/:id/editForm' element={<EditForm employee={getEmployee} employeeToEdit={employee} updateEmployee={updateEmployee} />}/> */}
-        <Route path='/newForm' element={<NewForm   addEmployee={addEmployee}/>}/>
-        <Route path="employees" element={<EmployeeContainer employees={employees} deleteEmployee={deleteEmployee}/>}/>
+        <Route path='/newForm' element={<NewForm addEmployee={handleAddEmployee}/>}/>
+        <Route path='/employees/EditForm/:id' element={<EditForm
+        //  employees={employees} updateEmployee={updateEmployee}
+         />}/>
+        <Route path='employees' element={<EmployeeContainer employees={employees} deleteEmployee={deleteEmployee} />}/>
+        <Route path='/employees/:id' element={<EmployeeView />}/>
         {/* not mandatory to put a "/" at the beginning of a route */}
-        <Route path="/employees/:id" element={<EmployeeView />}/>
       </Routes>
       {/* <Home />
       <RegisterUser register={register}/>
@@ -108,7 +93,7 @@ export default function App() {
 }
 
 
-
-
+// heroku backend deployment
+//https://emp-backend-app.herokuapp.com/api/v1/employees/
 // how to set up react router
 // https://www.freecodecamp.org/news/how-to-use-react-router-version-6/#:~:text=To%20install%20React%20Router%2C%20all,%2Drouter%2Ddom%406%20

@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 
 
-const EmployeeView = (props) => {
+const EmployeeView = () => {
     let [employee, setEmployee] = useState({});
     let {id} = useParams()
     
@@ -28,24 +28,23 @@ const EmployeeView = (props) => {
 
       useEffect(()=>{
         getOneEmployeeById(id)
-      })
+      },[])
 
     return(
         <div className='view'>
         {/* <img src="https://cdn0.iconfinder.com/data/icons/dog-and-cat-4/64/12-siberian_husky-canine-puppy-pets-avatar-animals-animal-dog-512.png"></img> */}
        
-
-        <h1>{employee.name} </h1>
-
-        <h3>Department:{employee.department}</h3>
-       
-        <p>Admin:
-          {employee.admin}
-        </p>
+        { employee &&
+          <div>
+            <h1>Name: {employee.name} </h1>
+            <h3>Department:{employee.department} ({employee.id})</h3>
+            <h3>Admin:{employee.admin}</h3>
+          </div>
+        }
        
         </div>
-
     )
 }
+        
 
 export default EmployeeView
