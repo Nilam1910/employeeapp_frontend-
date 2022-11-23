@@ -51,10 +51,7 @@ const EmployeeContainer = (props) =>{
     </div>
   )
 }                 
-// const  deleteEmployee = (id) => {
-// getEmployees((prev) => prev.filter((employee) => employee.id !== id))
-// }
+
 export default EmployeeContainer
 
-// https://blog.devgenius.io/react-bootstrap-grid-layout-c9bea6fd
-// https://react-bootstrap.github.io/components/buttons/
+

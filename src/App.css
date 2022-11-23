@@ -1,14 +1,9 @@
 nav {
   display: flex;
-  justify-content:space-around ;
+  justify-content:space-between ;
   align-items: center;
   padding: 1vh;
   font-size: 1.5em;
-}
-
-nav :last-child, footer:last-child{
-  padding-right: 300px;
-   
 }
 
 nav > a {
@@ -17,15 +12,16 @@ nav > a {
   
 }
 
-table  {
+Table  {
   background-color: lightblue;
   display:flex;
   justify-content: center;
   flex-direction: row;
-  /* align-items: center; */
+  align-items: center;
   padding: 10vh;
   border-collapse: collapse;
   width: 100%;
+  /* max-width: 80rem; */
 }
 .view{
   background-color: aqua;
@@ -45,8 +41,12 @@ td{
   flex-direction: column;
   font-size: 15px;
 }
-.table-tr{
+Table tr, Table tr ,Table th{
   display: flex;
+  justify-content: center;
+  padding:0 1em;
+  max-width: 80rem;
+ 
 } 
 main {
   background-color:  grey;
@@ -61,6 +61,7 @@ main {
 }
 h2{
   padding-bottom: -50px;
+  padding-top: -50px;
 }
 .App {
   text-align: center;
@@ -121,22 +122,12 @@ footer > li {
   height: 40vmin;
   pointer-events: none;
 }
-/* 
-table,th,td{
-  border: 1px solid;
   
-} */
-
-
 #employees td, #employees th {
   border: 1px solid #ddd;
   padding: 8px;
 
 }
-
-/* #employees tr:nth-child(even){background-color: #f2f2f2; }
-
-#employees tr:hover {background-color: #ddd;} */
 
 #employees th, .formContainer label {
   padding-top: 12px;
@@ -179,33 +170,11 @@ table,th,td{
   height: 30px
 }
 
-/* #employees tr:nth-child(even){background-color: #f2f2f2; }
-/* .newFormContainer, .editFormContainer{
-  border-style: dashed;
-  height: 500px;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-} */
-
-/* .outsideContainer{
-  height: 700px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-} */
-
-@media screen and (max-width:824px) {
+@media all and (max-width:900px) {
   body{
-    background-color: lightslategray;
+    background-color:lightpink;
   }
-  .tbody{
-    min-width: none;
-    
-  }
-  Table{
-    min-width: 800px;
-  }
+  Table{ max-width:800px}
   /* .nav */
 }
   

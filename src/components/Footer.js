@@ -7,7 +7,7 @@ const Footer = () => {
                <br/>
                1234 Algonquin Road 
                <br/>
-               City, State 00000
+               City, IL 60431
                <br/>
                +1 (000) - 000 - 0000
            </li>

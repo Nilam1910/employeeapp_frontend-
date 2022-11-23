@@ -10,7 +10,6 @@ const EmployeeView = () => {
     let baseUrl = 'http://localhost:8000'
 
     const getOneEmployeeById = (id) => {
-        // fetch to the backend
         fetch(baseUrl + "/api/v1/employees/" + id,{
           credentials: "include"
         })
@@ -32,7 +31,6 @@ const EmployeeView = () => {
 
     return(
         <div className='view'>
-        {/* <img src="https://cdn0.iconfinder.com/data/icons/dog-and-cat-4/64/12-siberian_husky-canine-puppy-pets-avatar-animals-animal-dog-512.png"></img> */}
        
         { employee &&
           <div>
