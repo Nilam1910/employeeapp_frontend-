@@ -78,16 +78,16 @@ form {
   gap: 0px;
 }
 form > input {
-  margin-bottom: 5px;
+  margin-bottom: none;
 }
 form * {
   font-size: 28px;
 }
-footer {
+footer, nav {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: grey;
+  background-color: lightgrey;
   padding: 1vh;
   margin-bottom: none;
 }
@@ -170,11 +170,13 @@ footer > li {
   height: 30px
 }
 
-@media all and (max-width:900px) {
+@media all and (max-width:950px) {
   body{
     background-color:lightpink;
   }
   Table{ max-width:800px}
-  /* .nav */
-}
+.table-tr{max-width: 800px;}
   
+  /* .nav */
+  tbody{width: 450px;}
+}
