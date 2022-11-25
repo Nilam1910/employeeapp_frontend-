@@ -2,7 +2,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import {Route, Routes, useNavigate} from 'react-router-dom';
-// import NavBar from './Components/NavBar';
+import NavBar from './Components/NavBar';
 import Home from './Components/Home';
 import EmployeeContainer from './Components/EmployeeContainer';
 import Footer from './Components/Footer';
@@ -62,7 +62,7 @@ export default function App() {
  
   return (
     <div className="App">
-      {/* <NavBar /> */}
+      <NavBar />
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/newForm' element={<NewForm addEmployee={handleAddEmployee}/>}/>
