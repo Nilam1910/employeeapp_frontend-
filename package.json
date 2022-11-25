@@ -1,9 +1,7 @@
 {
   "name": "employeeapp_frontend",
   "version": "0.1.0",
-  "engines": {
-    "node": "16.17.0"
-  },
+  
   "private": true,
  
   
