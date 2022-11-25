@@ -70,6 +70,7 @@ export default function App() {
         <Route path='employees' element={<EmployeeContainer employees={employees} deleteEmployee={deleteEmployee} />}/>
         <Route path='/employees/:id' element={<EmployeeView />}/>
         {/* not mandatory to put a "/" at the beginning of a route */}
+
       </Routes>
      
       <Footer />

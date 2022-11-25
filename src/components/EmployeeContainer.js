@@ -16,6 +16,7 @@ const EmployeeContainer = (props) =>{
       <h2> Employees List </h2>
       <Table striped  >
         <tbody className='tbody'> 
+        <div class = "wrapper">
           <tr>
             <th>Employee Name</th>
             <th>Department</th>
@@ -23,7 +24,6 @@ const EmployeeContainer = (props) =>{
             <th>Option</th>
             <th></th>
           </tr>
-         
             { props.employees.map((employee) => {   
                   return (
                   <tr className='table-tr' key={employee.id}>
@@ -46,6 +46,7 @@ const EmployeeContainer = (props) =>{
                 )
               })
             }  
+        </div>
         </tbody>
       </Table>
     </div>
