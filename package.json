@@ -1,7 +1,12 @@
 {
   "name": "employeeapp_frontend",
   "version": "0.1.0",
+  "engines": {
+    "node": "16.17.0"
+  },
   "private": true,
+ 
+  
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -9,6 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.2",
     "dotenv": "^16.0.3",
+    "npm": "^9.1.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",

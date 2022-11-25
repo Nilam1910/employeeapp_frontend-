@@ -1,12 +1,12 @@
    
 import './App.css';
-import React, { useState, useEffect } from 'react'
-import {Route, Routes, useNavigate} from 'react-router-dom'
-import NavBar from './Components/NavBar'
-import Home from './Components/Home'
-import EmployeeContainer from './Components/EmployeeContainer'
-import Footer from './Components/Footer'
-import EmployeeView from './Components/EmployeeView'
+import React, { useState, useEffect } from 'react';
+import {Route, Routes, useNavigate} from 'react-router-dom';
+import NavBar from './Components/NavBar';
+import Home from './Components/Home';
+import EmployeeContainer from './Components/EmployeeContainer';
+import Footer from './Components/Footer';
+import EmployeeView from './Components/EmployeeView';
 import NewForm from './Components/NewForm';
 import EditForm from './Components/EditForm';
 
