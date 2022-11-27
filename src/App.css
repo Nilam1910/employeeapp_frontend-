@@ -1,10 +1,11 @@
 nav {
   display: flex;
   justify-content:space-between ;
+  width: 109%;
   align-items: center;
   padding: 1vh;
   font-size: 1.5em;
-  width: 100%;
+ 
 }
 
 nav > a {
@@ -14,35 +15,38 @@ nav > a {
 }
 
 Table  {
-  background-color: lightblue;
+  background-color:  #61dafb;
   display:flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  padding: 10vh;
+  padding: 5vh;
   border-collapse: collapse;
   width: 100%;
-  /* max-width: 80rem; */
+  max-width: 110rem;
+ 
 }
 .view{
   background-color: aqua;
+  
 }
 th {
   text-decoration: underline;
   font-size: 15px;
   padding: 4vh;
   width: 200px;
+  margin-top: -35px;
 }
 td{
   padding: 1vh;
   width: 200px;
   display: flex;
-  height: 20px;
+  height: 30px;
   justify-content: space-around;
   flex-direction: column;
   font-size: 15px;
 }
-Table tr, Table tr ,Table th{
+Table tr,Table th{
   display: flex;
   justify-content: center;
   padding:0 0em;
@@ -50,8 +54,8 @@ Table tr, Table tr ,Table th{
  
 } 
 main {
-  /* background-color:  grey; */
-  height: 63vh;
+  background-color:  #61dafb;
+  height: 80vh;
   width: 100%;
   
   display: flex;
@@ -61,7 +65,7 @@ main {
   
 }
 h2{
-  padding-bottom: -50px;
+  padding-bottom: -100px;
   padding-top: -50px;
 }
 .App {
@@ -71,11 +75,14 @@ h2{
 form {
   display: flex;
   justify-content: center;
+ 
   align-items: center;
   flex-direction: column;
   padding: .5vh;
-  margin: 5vh;
-  background-color: lightblue;
+  /* margin: 11vh; */
+  margin-top: 110px;
+  margin-bottom: 40px;
+  background-color:  #61dafb;
   gap: 0px;
 }
 form > input {
@@ -106,68 +113,54 @@ footer > li {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 1vmin);
+  font-size: calc(10px + 2vmin);
   color: white;
 }
 .App-link {
   color: #61dafb;
 }
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-  
+ 
 #employees td, #employees th {
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
   padding: 8px;
 
 }
 
-#employees th, .formContainer label {
-  /* padding-top: 0px;
-  padding-bottom: 0px; */
+/* #employees th, .formContainer label {
+  padding-top: 0px;
+  padding-bottom: 0px;
   text-align: left;
   background-color: #04AA6D;
   color: white;
   
+} */
+.container{
+  display: flexbox;
+  background-color: #61dafb;
+  position:absolute;
+  width: 100%;
 }
 .app-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   padding: 1rem;
 }
-/* form td:last-child {
-  display: flex;
-  justify-content: space-around;
-  height: 50px
-}  */
+
  button{
   height: 50px;
   width: 50px;
   text-align: center;
-  /* display: flex;
-  justify-content: space-around;
-  flex-direction: column; */
+
 } 
 .btnOne{
   display: inline;
   text-align: center;
   margin-left: 30px;
 }
-/* .btnOne :first-child(
-  margin-top: -5px;
-)   */
+
 .btnTwo{
-  margin-left: -105px;
+  margin-left: -115px;
   width: 50px;
   height: 30px
 }
@@ -177,11 +170,10 @@ footer > li {
     background-color:lightgoldenrodyellow;
   }
   Table{ max-width:800px}
-.table-tr{max-width: 800px;}
+.table-tr{max-width: 700px;}
   
   /* .nav */
   tbody{width: 450px;}
 }
-.wrapper{
-  margin-left: 50px;
-}
+
+

@@ -16,7 +16,7 @@ const EmployeeContainer = (props) =>{
       <h2> Employees List </h2>
       <Table striped  >
         <tbody className='tbody'> 
-        <div class = "wrapper">
+        
           <tr>
             <th>Employee Name</th>
             <th>Department</th>
@@ -35,18 +35,20 @@ const EmployeeContainer = (props) =>{
                     <td>{ employee.admin }</td>
                     <td>
                       <button className="btnOne" style={{ color:"purple"}} 
-                      onClick={()=>{navigate(`/employees/EditForm/${employee.id}`)}}
+                        onClick={()=>{navigate(`/employees/EditForm/${employee.id}`)}}
                       ><BsFillPencilFill/>
                       </button>
                     </td>
-                    <td><button className="btnTwo" style={{color: "red"}} 
-                        onClick={()=>props.deleteEmployee(employee.id)}><RiDeleteBin6Fill/></button>
+                    <td>
+                      <button className="btnTwo" style={{color: "red"}} 
+                        onClick={()=>props.deleteEmployee(employee.id)}><RiDeleteBin6Fill/>
+                      </button>
                     </td>
                   </tr> 
                 )
               })
             }  
-        </div>
+      
         </tbody>
       </Table>
     </div>

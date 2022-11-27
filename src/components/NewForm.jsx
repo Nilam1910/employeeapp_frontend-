@@ -89,10 +89,7 @@ export class NewForm extends Component {
                     placeholder="Employee Admin"
                   />
                 <br />
-                  <input type="submit" value="Add Employee" 
-                  // onClick={()=>{navigate(`${EmployeeContainer}`)}}
-                 
-                  />
+                  <input type="submit" value="Add Employee" />
             </form>
       // </div>
       )

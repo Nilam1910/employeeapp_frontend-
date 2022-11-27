@@ -7,7 +7,7 @@ import {NavLink, Link} from 'react-router-dom'
 export default function NavBar() {
 
     let activeStyle = {
-        backgroundColor: "lightblue"
+        backgroundColor: " #61dafb"
     }
     
     return(

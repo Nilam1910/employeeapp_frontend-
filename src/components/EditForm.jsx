@@ -27,6 +27,7 @@ const EditForm = () => {
   }
   useEffect(()=>{
     getOneEmployeeById()
+    
   },[]) //array of data  
   // console.log(name,department,admin,"state") //worked
 
@@ -85,7 +86,7 @@ const EditForm = () => {
               placeholder='Employees Admin' 
           />
       <br />
-          <input type="submit" value="submit"  
+          <input type="submit" value="UpDate Employee"  
           />
     </form>
   </div>
